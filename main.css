@@ -47,3 +47,34 @@ button {
 .footer-links {
     margin-top: 40px;
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;        /* centers the box */
+    padding: 20px;         /* inside spacing */
+    border: 2px solid #333; /* border included in box model */
+    
+}
+
+.bio-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+   
+    border-radius: 5px;
+}
+
+.hobby-list {
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;          
+    gap: 20px;              /* spacing between items */
+}
+
+.hobby-list li {
+    background-color: #d6eaff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #8bb8e8;
+}
