@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Square a Number</title>
+    <title>Button Script Example</title>
   </head>
   <body>
-    <h2>Enter your number:</h2>
-    <input type="number" id="number" placeholder="Your number here">
-    <button onclick="greetUser()">Square it</button>
+    <h1>Click the Button!</h1>
+    <button id="helloBtn">Say Hello</button>
 
-    <script>
-      function greetUser() {
-        let num = document.getElementById("number").value;
-        if (num === "") {
-          alert("Please enter your number first!");
-          return;
-        }
-        alert("Enter a number: "+ num);
-        alert("The square is " + square(num));
-      }
-
-      function square(num) {
-        return num * num;
-      }
-    </script>
+    <button id="byeBtn">Say bye</button>
+    <script src="script.js"></script>
   </body>
 </html>
