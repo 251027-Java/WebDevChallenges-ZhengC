@@ -9,7 +9,12 @@
             background-color: black;
             color: white;
         }
+        .done {
+        text-decoration: line-through;
+        color: gray;
+      }
     </style>
+    <script src="script.js" defer></script>
     <script>
         function makered() {
             document.getElementById("text").classList.add("redBold");
@@ -41,7 +46,16 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
         }
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('output').innerHTML =
+             '<h2>${data.title}</h2><p>${data.body}</p>';
+        }).catch(error => document.getElementById('output').innerHTML
+        = 'Error fetching data: ${error}');
     </script>
+    
   <body>
     <h1>Hello!</h1>
     
@@ -60,5 +74,12 @@
     <button onclick="changeBG()">Change Background Color</button>
     <br><br>
     <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <h1>My To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="New task">
+    <button id="addTask">Add</button>
+    <ul id="taskList"></ul>
+    <div id="output">Loading...</div>
+
   </body>
 </html>
