@@ -5,6 +5,10 @@
             color:red;
             font-weight: bold;
         }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
     </style>
     <script>
         function makered() {
@@ -34,6 +38,9 @@
             document.body.style.backgroundColor = color[index];
             index = (index + 1) % color.length;
         }
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
     </script>
   <body>
     <h1>Hello!</h1>
@@ -51,5 +58,7 @@
     <button onclick="toggleImage()">Toggle Image</button>
     <br><br>
     <button onclick="changeBG()">Change Background Color</button>
+    <br><br>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </body>
 </html>
