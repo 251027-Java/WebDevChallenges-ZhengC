@@ -20,6 +20,14 @@
             li.textContent = "New Item";
             document.getElementById("list").appendChild(li);
         }
+        function toggleImage() {
+            const image = document.getElementById("image");
+            if (image.src.includes("3.jpg")) {
+                image.src = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350";              
+            } else {                
+                image.src = "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg";  
+            } 
+        }
     </script>
   <body>
     <h1>Hello!</h1>
@@ -31,6 +39,9 @@
         <li>Item 1</li>
     </ul>
     <button onclick="addItem()">Add New Item</button>
+    <br><br>
+    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg" width="200">
+    <button onclick="toggleImage()">Toggle Image</button>
     
   </body>
 </html>
