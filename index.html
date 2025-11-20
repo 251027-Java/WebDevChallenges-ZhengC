@@ -14,6 +14,12 @@
         function reset() {
             document.getElementById("text").classList.remove("redBold");
         };
+
+        function addItem(){
+            const li = document.createElement("li");
+            li.textContent = "New Item";
+            document.getElementById("list").appendChild(li);
+        }
     </script>
   <body>
     <h1>Hello!</h1>
@@ -21,7 +27,10 @@
     <p id="text">Change my color!</p>
     <button onclick="makered()">Make Red</button>
     <button onclick="reset()">Reset</button>
-
+    <ul id="list">
+        <li>Item 1</li>
+    </ul>
+    <button onclick="addItem()">Add New Item</button>
     
   </body>
 </html>
