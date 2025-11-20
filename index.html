@@ -28,6 +28,12 @@
                 image.src = "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg";  
             } 
         }
+        const color =["lightblue", "lightgreen", "pink", "yellow", "lavender"];
+        let index=0;
+        function changeBG() {
+            document.body.style.backgroundColor = color[index];
+            index = (index + 1) % color.length;
+        }
     </script>
   <body>
     <h1>Hello!</h1>
@@ -41,7 +47,9 @@
     <button onclick="addItem()">Add New Item</button>
     <br><br>
     <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg" width="200">
+    <br><br>
     <button onclick="toggleImage()">Toggle Image</button>
-    
+    <br><br>
+    <button onclick="changeBG()">Change Background Color</button>
   </body>
 </html>
