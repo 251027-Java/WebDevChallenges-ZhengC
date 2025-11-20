@@ -14,6 +14,36 @@
         color: gray;
       }
     </style>
+    <body>
+    <h1>Hello!</h1>
+    
+    <p id="text">Change my color!</p>
+    <button onclick="makered()">Make Red</button>
+    <button onclick="reset()">Reset</button>
+    <ul id="list">
+        <li>Item 1</li>
+    </ul>
+    <button onclick="addItem()">Add New Item</button>
+    <br><br>
+    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg" width="200">
+    <br><br>
+    <button onclick="toggleImage()">Toggle Image</button>
+    <br><br>
+    <button onclick="changeBG()">Change Background Color</button>
+    <br><br>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <h1>My To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="New task">
+    <button id="addTask">Add</button>
+    <ul id="taskList"></ul>
+    <div id="output">Loading...</div>
+    <h1>Posts</h1>
+    <button id="loadBtn">Load Posts</button>
+    <div id="postsContainer"></div>
+
+
+
     <script src="script.js" defer></script>
     <script>
         function makered() {
@@ -51,35 +81,28 @@
         .then(response => response.json())
         .then(data => {
             document.getElementById('output').innerHTML =
-             '<h2>${data.title}</h2><p>${data.body}</p>';
-        }).catch(error => document.getElementById('output').innerHTML
-        = 'Error fetching data: ${error}');
+             `<h2>${data.title}</h2><p>${data.body}</p><hr>`;
+        }).catch(error => document.getElementById('output').textContent
+        = `Error fetching data: ${error}`);
+
+        document.getElementById('loadBtn').addEventListener('click', () => {
+            const container = document.getElementById('postsContainer');
+            container.innerHTML = 'Loading posts...'; 
+
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(response => response.json())
+                .then(posts => {
+                    container.innerHTML = ''; // Clear loading text
+                    posts.slice(0, 5).forEach(post => {
+                        const item = document.createElement('div');
+                        item.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p><hr>`;                   
+                        container.appendChild(item);
+                    });
+                }).catch(error => {container.textContent
+                = `Error fetching data: ${error}`;
+            });
+            });
     </script>
     
-  <body>
-    <h1>Hello!</h1>
-    
-    <p id="text">Change my color!</p>
-    <button onclick="makered()">Make Red</button>
-    <button onclick="reset()">Reset</button>
-    <ul id="list">
-        <li>Item 1</li>
-    </ul>
-    <button onclick="addItem()">Add New Item</button>
-    <br><br>
-    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg" width="200">
-    <br><br>
-    <button onclick="toggleImage()">Toggle Image</button>
-    <br><br>
-    <button onclick="changeBG()">Change Background Color</button>
-    <br><br>
-    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-
-    <h1>My To-Do List</h1>
-    <input type="text" id="taskInput" placeholder="New task">
-    <button id="addTask">Add</button>
-    <ul id="taskList"></ul>
-    <div id="output">Loading...</div>
-
-  </body>
+</body>
 </html>
