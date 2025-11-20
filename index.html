@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Calculator</title>
-  </head>
+    <style>
+        .redBold {
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function makered() {
+            document.getElementById("text").classList.add("redBold");
+        }
+
+        function reset() {
+            document.getElementById("text").classList.remove("redBold");
+        };
+    </script>
   <body>
-    <h1>Calculator</h1>
+    <h1>Hello!</h1>
+    
+    <p id="text">Change my color!</p>
+    <button onclick="makered()">Make Red</button>
+    <button onclick="reset()">Reset</button>
 
-    <input type="number" id="num1" placeholder="First number">
-    <input type="number" id="num2" placeholder="Second number">
-    <button id="addBtn">Add</button>
-    <button id="addBtns">Subtract</button>
-    <button id="addBtnm">Multiply</button>
-    <button id="addBtnd">Divide</button>
-
-    <p id="result"></p>
-
-    <script src="script.js"></script>
+    
   </body>
 </html>
